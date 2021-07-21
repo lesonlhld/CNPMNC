@@ -111,7 +111,6 @@
       <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
       <script>
          $(window).on('load', function() {
-             console.log('All assets are loaded')
              $("#address").focus();
          	if (new window.URLSearchParams(window.location.search).has('costFrom'))
          	{
@@ -135,10 +134,10 @@
 			   </div>
 		   <div class="form-check">
 		   <br>
-              <label class="form-check-label">
-                <input class="form-check-input" name="status" type="checkbox" id="status" value="empty"> : Empty
-              </label>
-            </div>
+		   <div class="form-group">
+	           <label style="margin:0px 10px 0px 0px; float:left">Empty</label>
+	           <input type="checkbox" name="status" id="status" value="empty">
+	       </div>
 			</div>`      
          	  )
          	}

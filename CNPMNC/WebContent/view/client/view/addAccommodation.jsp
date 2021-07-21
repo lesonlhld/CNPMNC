@@ -28,43 +28,35 @@
          <div class="collapse navbar-collapse" id="navbarCollapse">
             <form class="form-inline mt-2 mt-md-0 mr-auto">
             </form>
-            <%--         <ul class="navbar-nav " style="margin-right:10%">
-               <li class="nav-item">
-                 <a class="nav-link" href="${pageContext.request.contextPath}/welcome"><h4>Home Page</h4><span class="sr-only">(current)</span></a>
-               </li>
-               <li><a class="nav-link" href="${pageContext.request.contextPath}/advancedSearch"><h4>Advanced Search</h4><span class="sr-only">(current)</span></a></li>
-               
-               </ul>
-               --%>
          </div>
       </nav>
       <br /><br /><br/><br /><br/>
       <div class="container">
          <form action = "${pageContext.request.contextPath}/addAccommodation" method = "post">
             <div class="row">
-          <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-10 offset-xs-1">
-              <div class="form-group">
-                  <span for="address">Address :</span>
-                  <input class="form-control" type="text" name="address" id="address" required>
-              </div>
-              <div class="form-group">
-                <span for="cost">Cost :</span>
-                <input class="form-control" type="number" name="cost" id="cost" required>
-              </div>
-
-              <div class="form-group">
-                <label for="description">Description :</label>
-                <input class="form-control" type="text" name="description" id="description" required>
-              </div>
-              <div class="form-group">
-                <span for="contact">Contact :</span>
-                <input class="form-control" type="text" id="contact" name="contact" required>
-              </div>
-          </div>
-        </div>
-       	<div style="text-align: center">
-              <button type="submit" class="btn btn-primary" id="sub">Submit</button>
-        </div>
+          		<div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-10 offset-xs-1">
+	              <div class="form-group">
+	                  <label for="address">Address (*)</label>
+	                  <input type="text" required name="address" id="address" class="form-control" placeholder="Enter Address" required/>
+	              </div>
+	              <div class="form-group">
+	                <label for="cost">Cost (*)</label>
+	                <input class="form-control" type="number" name="cost" id="cost" min="0" placeholder="Enter Cost" required>
+	              </div>
+	
+	              <div class="form-group">
+	                <label for="description">Description</label>
+	                <textarea class="form-control" rows="3" id="description" name="description" placeholder="Enter Description" required></textarea>
+	              </div>
+	              <div class="form-group">
+	                <label for="contact">Contact (*)</label>
+	                <input class="form-control" type="text" id="contact" name="contact" placeholder="Enter Contact" required>
+	              </div>
+	          </div>
+	        </div>
+	       	<div style="text-align: center">
+	              <button type="submit" class="btn btn-primary" id="sub">Submit</button>
+	        </div>
             <br>
          </form>
       </div>

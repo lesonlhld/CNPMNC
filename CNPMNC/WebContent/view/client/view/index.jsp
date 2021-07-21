@@ -195,8 +195,8 @@
              	if ( $('#advancedSearchBox').hasClass('single_register') ){
              		$('#searchBox').addClass('single_register');
              		$('#searchBox').removeClass('single_login')
-              	$('#advancedSearchBox').addClass('single_login');
-              	$('#advancedSearchBox').removeClass('single_register');
+	              	$('#advancedSearchBox').addClass('single_login');
+	              	$('#advancedSearchBox').removeClass('single_register');
              		document.getElementById("searchBox").style.transform = "skewX(-20deg)";
              		document.getElementById("advancedSearchBox").style.transform = "skewX(-20deg)";
              		document.getElementById("searchText").style.transform = "skewX(20deg)";
@@ -215,18 +215,18 @@
         `<div id="advanced_search">
 			   <div class="row">
 			   <div class="col-md-6">
-			      <input type="text" class="form-control" name="costFrom" id="costFrom" placeholder="Cost From..." />
+			      <input type="number" class="form-control" name="costFrom" id="costFrom" min="0" placeholder="Cost From..." />
 			   </div>
 			   <div class="col-md-6">
-			      <input type="text" class="form-control" name="costTo" id="costTo" placeholder="Cost To..." />
+			      <input type="number" class="form-control" name="costTo" id="costTo" min="0" placeholder="Cost To..." />
 			   </div>
 			   </div>
 		   <div class="form-check">
 		   <br>
-             <label class="form-check-label">
-               <input class="form-check-input" name="status" type="checkbox" id="status" value="empty"> : Empty
-             </label>
-           </div>
+		   <div class="form-group">
+	           <label style="margin:0px 10px 0px 0px; float:left">Empty</label>
+	           <input type="checkbox" name="status" id="status" value="empty">
+	       </div>
 			</div>`      
         	  )
         	}
