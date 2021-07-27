@@ -3,10 +3,10 @@ create database SAP;
 use SAP;
 create table accommodation(
 	id int not null auto_increment,
-    address varchar(255) not null,
+    address text not null,
     type_acc varchar(45) not null,
     cost int not null,
-    description_acc varchar(200),
+    description_acc text,
     contact varchar(45) not null,
     status_acc varchar(10) not null,
     image text null,
