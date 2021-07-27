@@ -112,11 +112,11 @@
                                  <tr class="odd gradeX">
                                     <c:set var="index" value="${index + 1}" />
                                     <td>${index}</td>
-                                    <td style="max-width: 200px;">
+                                    <td style="width: 200px;">
 									<c:forEach var="img" items="${fn:split(list.image,',')}">
 									<c:if test="${img != ''}">
 										<c:url value="/image?fname=${img}" var="imgUrl"></c:url>
-										<img height="150" width="200" src="${imgUrl}" />	
+										<a href="${imgUrl}" target="_blank"> <img height="150" width="200" src="${imgUrl}" /></a>
 									</c:if>
 									</c:forEach>
 									</td>
@@ -232,8 +232,8 @@
 	              <div class="form-group">
 	                <select id="status" class="form-control" name="status">
 	                   <option value="-1" selected>Choose Status</option>
-	                   <option value="empty">Empty</option>
-	                   <option value="full">Full</option>
+	                   <option value="Empty">Empty</option>
+	                   <option value="Full">Full</option>
 		           	</select>
 	              </div>
 			   </div>

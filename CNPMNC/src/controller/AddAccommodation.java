@@ -77,7 +77,7 @@ public class AddAccommodation extends HttpServlet {
 			if (image!="") {
 				image=image.substring(0, image.length()-1);
 			}
-			acc.setStatus_acc("empty");
+			acc.setStatus_acc("Empty");
 			acc.setImage(image);
 
 			if(accommodationService.insert(acc)) {
