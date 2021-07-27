@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,6 +46,7 @@ public class AddAccommodation extends HttpServlet {
 		DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
 		ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
 		String image = "";
+		Random generator = new Random();
 
 		try {
 			List<FileItem> items = servletFileUpload.parseRequest(req);
@@ -68,7 +70,7 @@ public class AddAccommodation extends HttpServlet {
 					String originalFileName = item.getName();
 					int index = originalFileName.lastIndexOf(".");
 					String ext = originalFileName.substring(index + 1);
-					String fileName = System.currentTimeMillis() + "." + ext;
+					String fileName = System.currentTimeMillis() + generator.nextInt(1234) + "." + ext;
 					File file = new File(path + "/" + fileName);
 					item.write(file);
 					image += fileName +",";
