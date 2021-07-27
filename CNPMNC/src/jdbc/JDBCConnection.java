@@ -16,7 +16,7 @@ public class JDBCConnection {
 		    String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName + "?requireSSL=false&useUnicode=true&characterEncoding=UTF-8";
 		       
 		    connection = DriverManager.getConnection(connectionURL, userName, password);
-			//System.out.println("thanh cong");
+		    //System.out.println("thanh cong");
 			
 		} catch (ClassNotFoundException | SQLException ex) {
 			ex.printStackTrace();

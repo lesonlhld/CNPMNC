@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 public class Accommodation implements Serializable{
 	private int id;
 	private String address;
@@ -8,11 +9,13 @@ public class Accommodation implements Serializable{
 	private String description_acc;
 	private String contact;
 	private String status_acc;
+	private String type_acc;
+	private String image;
 
 	public Accommodation() {
 		super();
 	}
-	public Accommodation(int id, String address, int cost, String description_acc, String contact, String status_acc) {
+	public Accommodation(int id, String address, int cost, String description_acc, String contact, String status_acc, String type_acc) {
 		super();
 		this.id = id;
 		this.address = address;
@@ -20,6 +23,7 @@ public class Accommodation implements Serializable{
 		this.description_acc = description_acc;
 		this.contact = contact;
 		this.status_acc = status_acc;
+		this.type_acc = type_acc;
 	}
 	public int getId() {
 		return id;
@@ -56,5 +60,17 @@ public class Accommodation implements Serializable{
 	}
 	public void setStatus_acc(String status_acc) {
 		this.status_acc = status_acc;
-	}		
+	}
+	public String getType_acc() {
+		return type_acc;
+	}
+	public void setType_acc(String type_acc) {
+		this.type_acc = type_acc;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

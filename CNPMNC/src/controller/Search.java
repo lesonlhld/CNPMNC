@@ -21,6 +21,7 @@ public class Search extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		if (req.getParameter("address") != null) {
 			String address = req.getParameter("address");
@@ -34,8 +35,10 @@ public class Search extends HttpServlet {
 					costTo = String.valueOf(Long.MAX_VALUE);
 				}
 				String status = req.getParameter("status");
-				if (status == null) status = "";
-				List<Accommodation> accommodationList = accommodationService.advancedSearch(address, costFrom, costTo, status);
+				if (status.equals("-1")) status = "";
+				String type_acc = req.getParameter("type_acc");
+				if (type_acc.equals("-1")) type_acc = "";
+				List<Accommodation> accommodationList = accommodationService.advancedSearch(address, costFrom, costTo, status, type_acc);
 				req.setAttribute("accList", accommodationList);
 			} else {
 				List<Accommodation> accommodationList = accommodationService.searchAddress(address);

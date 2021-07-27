@@ -42,7 +42,7 @@ public class AccommodationServiceImpl implements AccommodationService {
 	}
 
 	@Override
-	public List<Accommodation> advancedSearch(String address, String costFrom, String costTo, String status){
-		return AccommodationDao.advancedSearch(address, costFrom, costTo, status);
+	public List<Accommodation> advancedSearch(String address, String costFrom, String costTo, String status, String type_acc){
+		return AccommodationDao.advancedSearch(address, costFrom, costTo, status, type_acc);
 	}
 }

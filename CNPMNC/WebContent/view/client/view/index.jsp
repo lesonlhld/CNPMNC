@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <c:url value="/view/client/static" var="url"></c:url>
@@ -141,19 +142,61 @@
             </form>
          </div>
       </section>
-      <section id="footer" class="footer sections">
-         <div class="container">
+      <section id="accList">
+         <!--=== Content Medium Part ===-->
+         <div class="content-md margin-bottom-30">
+            <div class="container">
+               <section>
+                  <div class="table-responsive">
+                     <h3>Hostel Details:</h3>
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th>Index</th>
+                              <th>Image</th>
+                              <th>Address</th>
+                              <th>Type</th>
+                              <th>Cost</th>
+                              <th>Description</th>
+                              <th>Contact</th>
+                              <th>Status</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <c:set var="index" value="${0}" />
+                           <c:forEach items="${accList}" var="list">
+                              <tr class="odd gradeX">
+                                 <c:set var="index" value="${index + 1}" />
+                                 <td>${index}</td>
+                                    <td style="max-width: 200px;">
+									<c:forEach var="img" items="${fn:split(list.image,',')}">
+									<c:if test="${img != ''}">
+										<c:url value="/image?fname=${img}" var="imgUrl"></c:url>
+										<img height="150" width="200" src="${imgUrl}" />	
+									</c:if>
+									</c:forEach>
+									</td>
+                                 <td>${list.address}</td>
+                                 <td>${list.type_acc}</td>
+                                 <td>${list.cost}</td>
+                                 <td>${list.description_acc}</td>
+                                 <td>${list.contact}</td>
+                                 <td>${list.status_acc}</td>
+                              </tr>
+                           </c:forEach>
+                        </tbody>
+                     </table>
+                  </div>
+               </section>
+            </div>
+         </div>
+      </section>
+      <section id="footer" class="footer sections" style="background: #ffffff;">
+         <div class="container" style="border-top-style: solid; border-top-color: coral;">
             <div class="row">
                <div class="footer_bottom_area">
-                  <div class="col-sm-6 col-xs-12">
-                     <h3>This website is made by:</h3>
-                     <h4>SAP Team</h4>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                     <h3>Contact info:</h3>
-                     <h4>
-                        <label>Email: admin@gmail.com</label>
-                     </h4>
+                  <div class="col-sm-12 col-xs-12">
+                  All Rights Reserved. © 2021 SAP Team
                   </div>
                </div>
             </div>
@@ -218,13 +261,33 @@
 			      <input type="number" class="form-control" name="costTo" id="costTo" min="0" placeholder="Cost To..." />
 			   </div>
 			   </div>
-		   <div class="form-check">
-		   <br>
-		   <div class="form-group">
-	           <label style="margin:0px 10px 0px 0px; float:left">Empty</label>
-	           <input type="checkbox" name="status" id="status" value="empty">
-	       </div>
-			</div>`      
+			   
+			   <br>
+			   
+			   <div class="row">
+			   <div class="col-md-6">
+	              <div class="form-group">
+	                <select id="status" class="form-control" name="status">
+	                   <option value="-1" selected>Choose Status</option>
+	                   <option value="empty">Empty</option>
+	                   <option value="full">Full</option>
+		           	</select>
+	              </div>
+			   </div>
+			   <div class="col-md-6">
+	              <div class="form-group">
+	                <select id="type_acc" class="form-control" name="type_acc">
+						<option value="-1" selected>Choose Type</option>
+						<option value="Nhà trọ">Nhà trọ</option>
+						<option value="Khách sạn">Khách sạn</option>
+						<option value="Nhà nghỉ">Nhà nghỉ</option>
+						<option value="Chung cư">Chung cư</option>
+						<option value="Nhà riêng">Nhà riêng</option>
+						<option value="Ký túc xá">Ký túc xá</option>
+	 	           	</select>
+	              </div>
+			   </div>
+			   </div>`      
         	  )
         	}
       </script>

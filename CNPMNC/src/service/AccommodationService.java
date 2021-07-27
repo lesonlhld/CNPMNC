@@ -17,5 +17,5 @@ public interface AccommodationService {
 
 	List<Accommodation> searchAddress(String address);
 	
-	List<Accommodation> advancedSearch(String address, String costFrom, String costTo, String status);
+	List<Accommodation> advancedSearch(String address, String costFrom, String costTo, String status, String type_acc);
 }
